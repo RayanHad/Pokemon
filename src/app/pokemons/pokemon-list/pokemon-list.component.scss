@@ -1,0 +1,19 @@
+.bigimg {
+    display: none;  
+}
+
+
+mat-list-item {
+    transition: all 200ms ease-in-out;
+}
+mat-list-item:hover {
+
+    transform: scale(1.05) translateY(10px) translateX(20px);
+
+    .bigimg {
+        display: block;
+    position: absolute;
+    right: 350px;
+    top: -200px;
+    }
+}

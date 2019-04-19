@@ -1,0 +1,21 @@
+#buttonRetour{
+   background-color: Transparent;
+   background-repeat:no-repeat;
+   border: none;
+   cursor:pointer;
+   overflow: hidden;
+   outline:none;
+}
+
+:host{
+    display: flex;
+    flex-direction: column;
+}
+
+#card{
+    align-self: center;
+}
+
+// #imgArt:hover{
+//     display:block
+// }

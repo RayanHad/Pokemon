@@ -1,0 +1,47 @@
+<h2>Pokemon Details</h2>
+<h4>{{pokemon.name}} details</h4>
+<ng-container *ngIf="pokemon">
+  <mat-card id="card" style='width:530px;'>
+    <mat-grid-list cols="2" rowHeight="200">
+      <mat-grid-tile [colspan]='1'>
+        <div
+          style="display: flex;flex-direction: column;justify-content: space-around;height: 100%;align-items: center;">
+          <img style='height:85%; ' src="../../assets/img/official-artwork/{{pokemon.id}}.png" alt="">
+          <span>No : {{pokemon.id | number : '3.0-0'}}</span>
+        </div>
+      </mat-grid-tile>
+
+      <mat-grid-tile [colspan]='1'>
+        <div style="display: flex;flex-direction: column;justify-content: space-around;height: 100%;">
+          <div>
+            <span>{{pokemon.name}}</span>
+            <button mat-icon-button (click)='cry.play()'>
+              <mat-icon><img src="../../assets/img/autre/play-button.svg" style="height: 22px;" alt=""></mat-icon>
+            </button>
+            <audio autoplay #cry src="../../assets/audio/{{ pokemon.id }}.mp3"></audio>
+          </div>
+
+          <div style='display: flex; align-items: center;'>
+            <mat-chip-list>
+              <mat-chip *ngFor='let type of pokemon?.types'>{{type}}</mat-chip>
+            </mat-chip-list>
+          </div>
+          <div>
+            <span>Taille : {{pokemon.height}}</span>
+          </div>
+
+          <div>
+            <span>Poids : {{pokemon.weight | number : '.1-2'}}</span>
+          </div>
+        </div>
+      </mat-grid-tile>
+
+      <mat-grid-tile [colspan]='2'>
+        {{pokemon.description}}
+      </mat-grid-tile>
+      
+    </mat-grid-list>
+    <button id='buttonRetour' (click)='goBack()'>Retour</button>
+  </mat-card>
+  
+</ng-container>
