@@ -1,13 +1,10 @@
-<h2>Les pokemons</h2>
-<mat-nav-list infiniteScroll (scrolled)='onScroll()' >
-  <mat-list-item *ngFor="let p of pokemon?.data">
+<mat-nav-list class='liste' infiniteScroll (scrolled)='onScroll()' [scrollWindow]='false' style='width: 250px;'>
+  <mat-list-item (click)='clickme(p.id)' *ngFor="let p of pokemon?.data">
     <img matListAvatar src="../../../assets/img/sprites/{{p.id}}.png">
-      <a href="" routerLink="/detail/{{p.id}}">
-        <span>{{p.id}} - </span>
-        <span>{{p.name}}</span>
-      </a>
-      <div class="bigimg">
+    <span>{{p.id}} - </span>
+    <span> {{p.name}}</span>
+    <!-- <div class="bigimg">
           <img  src="../../../assets/img/official-artwork/{{p.id}}.png" alt="">
-      </div>
+      </div> -->
   </mat-list-item>
 </mat-nav-list>

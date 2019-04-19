@@ -1,7 +1,6 @@
-<h2>Pokemon Details</h2>
-<h4>{{pokemon.name}} details</h4>
-<ng-container *ngIf="pokemon">
-  <mat-card id="card" style='width:530px;'>
+
+<ng-container >
+  <mat-card id="card" style='width:530px;margin-top: 50px;' *ngIf="pokemon">
     <mat-grid-list cols="2" rowHeight="200">
       <mat-grid-tile [colspan]='1'>
         <div

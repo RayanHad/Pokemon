@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Pokemon } from 'src/app/models/pokemon.model';
 import { PokemonService } from '../pokemon.service';
 import { PagedData } from 'src/app/models/paged-data.model';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, OutletContext } from '@angular/router';
 
 @Component({
   selector: 'app-pokemon-list',
@@ -10,7 +10,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./pokemon-list.component.scss']
 })
 export class PokemonListComponent implements OnInit {
-
+  @Output() increment: EventEmitter<number> = new EventEmitter();
   pokemon:PagedData<Pokemon> = {data:[],limit:20,offset:0};
   constructor(private pokemonService: PokemonService, private activatedRoute: ActivatedRoute) { }
   
@@ -27,5 +27,7 @@ export class PokemonListComponent implements OnInit {
     this.getPokemons();
   }
 
-
+  clickme(id){
+    this.increment.emit(id);
+  }
 }
